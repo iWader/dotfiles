@@ -1,4 +1,4 @@
-tap 'caskroom/cask'
+tap 'homebrew/cask-cask'
 
 brew 'ack'
 brew 'git'
