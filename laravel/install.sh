@@ -9,7 +9,7 @@ composer global require "laravel/spark-installer" $COMPOSER_ARGS
 
 if ! vagrant box list | grep --quiet "laravel\/homestead"
 then
-    vagrant box add laravel/homestead --provider virtualbox
+    vagrant box add laravel/homestead --provider virtualbox --box-version 9.5.1
 fi
 
 # Install Homestead

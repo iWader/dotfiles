@@ -8,7 +8,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator time)
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
 # set theme
-ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
