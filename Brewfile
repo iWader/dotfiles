@@ -35,15 +35,9 @@ cask 'gitify'
 cask 'ngrok'
 cask 'grammarly'
 cask 'react-native-debugger'
-cask 'qlcolorcode'
-cask 'qlstephen'
-cask 'qlmarkdown'
 cask 'quicklook-json'
-cask 'qlimagesize'
 cask 'webpquicklook'
 cask 'suspicious-package'
-cask 'quicklookase'
-cask 'qlvideo'
 
 mas 'Clocks', id: 414554506
 mas 'Xcode', id: 497799835
