@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/cask": {
-        "revision": "813b38fc287d9a26f3024dd8a73c27b98419e0d6"
+        "revision": "3a14c33e5af6582b78fdf810906a9390fdc22cc9"
       }
     },
     "brew": {
@@ -416,6 +416,12 @@
         "options": {
           "full_name": "qlvideo"
         }
+      },
+      "visual-studio-code": {
+        "version": "1.46.1",
+        "options": {
+          "full_name": "visual-studio-code"
+        }
       }
     },
     "mas": {
@@ -435,7 +441,7 @@
       "catalina": {
         "HOMEBREW_VERSION": "2.4.2",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "9e2b2a72924b48ca26fc639fb68aed57f6ad2381",
+        "Homebrew/homebrew-core": "5030165db8f5cd30b1ded4ad834e35b43ef3198d",
         "CLT": "11.5.0.0.1.1588476445",
         "Xcode": "11.5",
         "macOS": "10.15.5"

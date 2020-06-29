@@ -38,6 +38,7 @@ cask 'react-native-debugger'
 cask 'quicklook-json'
 cask 'webpquicklook'
 cask 'suspicious-package'
+cask 'visual-studio-code'
 
 mas 'Clocks', id: 414554506
 mas 'Xcode', id: 497799835
