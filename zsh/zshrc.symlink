@@ -20,6 +20,8 @@ fi
 
 DEFAULT_USER="wade"
 
+plugins=(gpg-agent)
+
 source $ZSH/oh-my-zsh.sh
 
 # all of our zsh files
