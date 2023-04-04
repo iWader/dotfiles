@@ -18,6 +18,7 @@ brew 'pick'
 brew 'github/gh/gh'
 
 cask '1password'
+cask '1password/tap/1password-cli'
 cask 'atom'
 cask 'google-chrome'
 cask 'slack'
@@ -36,9 +37,6 @@ cask 'gitify'
 cask 'ngrok'
 cask 'grammarly'
 cask 'react-native-debugger'
-cask 'quicklook-json'
-cask 'webpquicklook'
-cask 'suspicious-package'
 cask 'visual-studio-code'
 
 mas 'Clocks', id: 414554506
