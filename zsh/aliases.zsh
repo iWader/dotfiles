@@ -25,3 +25,19 @@ alias jscodeshift="./node_modules/.bin/jscodeshift"
 
 # Utils
 alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpaste && echo"
+
+function site() {
+    if [ $# -eq 0 ]; then
+        cd /Users/wade/Code/$(ls -1 "/Users/wade/Code" | pick)
+    else
+        cd /Users/wade/Code/"$@"
+    fi
+}
+
+function radweb() {
+    if [ $# -eq 0 ]; then
+        cd /Users/wade/Radweb/$(ls -1 "/Users/wade/Radweb" | pick)
+    else
+        cd /Users/wade/Radweb/"$@"
+    fi
+}
