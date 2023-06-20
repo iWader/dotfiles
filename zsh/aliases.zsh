@@ -41,3 +41,16 @@ function radweb() {
         cd /Users/wade/Radweb/"$@"
     fi
 }
+
+
+function sail() {
+    CUSTOM=./bin/sail
+    COMPOSER=./vendor/bin/sail
+    if test -f "$CUSTOM"; then
+        ./bin/sail "$@"
+    elif test -f "$COMPOSER"; then
+        ./vendor/bin/sail "$@"
+    else
+        echo 'No sail found 🚣‍♂️'
+    fi
+}
