@@ -7,7 +7,7 @@
 [user]
         name = Wade Urry
         email = wade@iwader.co.uk 
-	signingkey = 8A8FCFB2
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDvPB0yHf1kEp3C60LIPxzW+oNSGhL8zU9rPwKdSbM9A
 
 [credential]
         helper = osxkeychain
@@ -85,8 +85,15 @@
 	insteadOf = "gl:"
 	insteadOf = "git://gitlab.com/"
 	insteadOf = "https://gitlab.com/"
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
 	required = true
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
