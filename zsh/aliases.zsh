@@ -28,7 +28,7 @@ alias uuid="uuidgen | tr -d '\n' | tr '[:upper:]' '[:lower:]' | pbcopy && pbpast
 
 function site() {
     if [ $# -eq 0 ]; then
-        cd /Users/wade/Code/$(ls -1 "/Users/wade/Code" | pick)
+        cd /Users/wade/Code/$(ls -1 "/Users/wade/Code" --color="never" | pick)
     else
         cd /Users/wade/Code/"$@"
     fi
@@ -36,7 +36,7 @@ function site() {
 
 function radweb() {
     if [ $# -eq 0 ]; then
-        cd /Users/wade/Radweb/$(ls -1 "/Users/wade/Radweb" | pick)
+        cd /Users/wade/Radweb/$(ls -1 "/Users/wade/Radweb" --color="never" | pick)
     else
         cd /Users/wade/Radweb/"$@"
     fi
