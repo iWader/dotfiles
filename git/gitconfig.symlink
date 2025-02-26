@@ -15,6 +15,8 @@
 [alias]
         yeet = reset
         co = checkout
+        s = switch
+        r = restore
         cp = cherry-pick
         wtf     = !$DOTFILES/bin/git-wtf
         rank-contributors = !$DOTFILES/bin/git-rank-contributors
