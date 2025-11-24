@@ -1,0 +1,32 @@
+#!/usr/bin/env php
+<?php
+
+$prs = exec('gh pr list --author "app/dependabot" --label dependencies --search "status:success review:required" --json number');
+
+if (!\is_string($prs)) {
+    echo 'Failed to read PRs from GitHub' . PHP_EOL;
+    exit(1);
+}
+
+/** @var GitHubPR[] $prArray */
+$prArray = json_decode($prs, true);
+
+foreach ($prArray as $pr) {
+    $number = $pr['number'];
+
+    $review = exec(\sprintf('gh pr review %s --approve --body "Automatic approval"', escapeshellarg($number)));
+
+    if ($review === false) {
+        echo \sprintf('Failed to approve PR #%d', $number) . PHP_EOL;
+        continue;
+    }
+
+    $merge = exec(\sprintf('gh pr merge %s --auto', escapeshellarg($number)));
+
+    if ($merge === false) {
+        echo \sprintf('Failed to merge PR #%d', $number) . PHP_EOL;
+        continue;
+    }
+
+    echo \sprintf('Approved and merged PR #%d', $number) . PHP_EOL;
+}
