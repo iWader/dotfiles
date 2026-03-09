@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-$prs = exec('gh pr list --author "app/dependabot" --label dependencies --search "status:success review:required" --json number');
+$prs = exec('gh pr list --author "app/dependabot" --label dependencies --search "status:success review-requested:@me" --json number');
 
 if (!\is_string($prs)) {
     echo 'Failed to read PRs from GitHub' . PHP_EOL;
