@@ -1,7 +1,26 @@
 #!/usr/bin/env php
 <?php
 
-$prs = exec('gh pr list --author "app/dependabot" --label dependencies --search "status:success review-requested:@me" --json number');
+$repo = null;
+
+foreach (\array_slice($argv, 1) as $arg) {
+    if (preg_match('/^--repo=(.+)$/', $arg, $matches)) {
+        $repo = $matches[1];
+        continue;
+    }
+
+    if ($arg === '--repo') {
+        echo 'The --repo flag requires a value, e.g. --repo=Radweb/InventoryBase' . PHP_EOL;
+        exit(1);
+    }
+
+    echo \sprintf('Unknown argument: %s', $arg) . PHP_EOL;
+    exit(1);
+}
+
+$repoFlag = $repo !== null ? \sprintf(' --repo %s', escapeshellarg($repo)) : '';
+
+$prs = exec(\sprintf('gh pr list%s --author "app/dependabot" --label dependencies --search "status:success review-requested:@me" --json number', $repoFlag));
 
 if (!\is_string($prs)) {
     echo 'Failed to read PRs from GitHub' . PHP_EOL;
@@ -14,14 +33,14 @@ $prArray = json_decode($prs, true);
 foreach ($prArray as $pr) {
     $number = $pr['number'];
 
-    $review = exec(\sprintf('gh pr review %s --approve --body "Automatic approval"', escapeshellarg($number)));
+    $review = exec(\sprintf('gh pr review %s%s --approve --body "Automatic approval"', escapeshellarg($number), $repoFlag));
 
     if ($review === false) {
         echo \sprintf('Failed to approve PR #%d', $number) . PHP_EOL;
         continue;
     }
 
-    $merge = exec(\sprintf('gh pr merge %s --auto', escapeshellarg($number)));
+    $merge = exec(\sprintf('gh pr merge %s%s --auto', escapeshellarg($number), $repoFlag));
 
     if ($merge === false) {
         echo \sprintf('Failed to merge PR #%d', $number) . PHP_EOL;
