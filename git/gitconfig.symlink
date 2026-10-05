@@ -95,3 +95,5 @@
 
 [gpg]
 	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /Users/wade/.ssh/allowed_signers
